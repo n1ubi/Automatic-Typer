@@ -1,10 +1,22 @@
 import os
 import pyautogui
-import time
 import win32gui
 import win32con
 import keyboard
 import random
+# ^^^ requirements
+
+count = 0 # for looping 
+
+
+#                        vvv  Read this vvv
+ # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv #
+ # Check the entire code and you can clear the comments if you want.     #
+ # Also you should read the README.md file.                              #
+ # Feel free to modify the code, but please don't claim it as your own.  #
+ # You should check the all the lines on from 55 to 96.                  #
+ # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #
+
 
 
 randomTexts = [
@@ -42,33 +54,45 @@ if __name__ == "__main__":
         '\n[\u001b[31m2\u001b[37m] Manual Text',
         '\n[\u001b[31m3\u001b[37m] Manual Looped'  
     )
-    # Press F3 to make it type.
+
+    # Typing modes: 1 = "random" text, 2 = Manual text, but only one time and 3 = Manual text, but looped
+    # Mode 1
     choice = input('\n\u001b[31m>\u001b[37m ')
     if "1" in choice:
             keyboard.wait('f3')
             print(random.choice(randomText))
             print("This one has a bit of issues. They will be fixed at somepoint.")
 
+    # Mode 2
     if "2" in choice:
         text = input('\n\u001b[31m>\u001b[37m Text\u001b[31m:\u001b[37m ')
         keyboard.wait('f3')
         Typer(text)
         exit()
-        
+
+    # Mode 3    
     if "3" in choice:
         text = input('\n\u001b[31m>\u001b[37m Text\u001b[31m:\u001b[37m ')
         keyboard.wait("f3")
+         # "while True:" repeats itself endlessly and "while count > <value>:" repeats itself <value> times. 
+         # Example: while count > 10: repeats itself 10 times.
         while True:
+        #while count > 10: This one has issues, don't use it.
             Typer(text)
-        # Failsafe feature, press F2 or ESC to make it stop.
-        if keyboard.is_pressed('f2'):
-            print('You pressed F2.\n')
-            print('Exiting.')
-            exit()
-        if keyboard.is_pressed('esc'):
-            exit()
+            count = count + 1 
 
+            # Checks if F2 or ESC is pressed. (actually functions correctly, i'm surprised, like no fucking way, 
+            # you have no idea how much time i spent on this.)
+            if keyboard.is_pressed('f2'):
+               print('You pressed F2.\n')
+               print('Exiting.')
+               exit()
+            if keyboard.is_pressed('esc'):
+               print('You pressed ESC.\n')
+               print('Exiting.')
+               exit() 
+           
+    # Prints this if you can't type numbers, lmao.
     else:
         print('[\u001b[31m!\u001b[37m] Invalid Option.')
         exit()
-

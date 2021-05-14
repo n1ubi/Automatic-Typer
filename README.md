@@ -1,5 +1,14 @@
 ### Automatic Typer
   
+# Requirements
+
+- pyautogui
+- win32gui
+- win32con
+- keyboard
+- random
+Install by typing "pip install <package>" into Powershell or Command Prompt.
+
 # How to Use
 
   Type "python3 AT.py" on Command Prompt or Powershell then select a mode ( 1 = random, 2 = Manual once and 3 is Manual Looped.) 

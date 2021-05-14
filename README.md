@@ -8,4 +8,5 @@
 # Notes
 
 - This works on any program, even the ones that don't support copy pasting.
-- This program is made by niub and please, don't yoink the code.
+- Please, don't yoink the code. 
+- Improvements and fixes will be made at somepoint.
